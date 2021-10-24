@@ -1,8 +1,9 @@
 // src/components/TodoList.js
 import { useEffect, useState } from "react";
 import { Todo } from "./Todo";
+import './todo-list.css';
 
-const PER_PAGE_LIMIT = 3;
+const PER_PAGE_LIMIT = 5;
 
 const TodoList = ({ contract }) => {
   const [todos, setTodos] = useState([]);
@@ -31,17 +32,20 @@ const TodoList = ({ contract }) => {
 
   return (
     <ul>
-      <div className="flex">
-      Current Page: {page}
-      </div>
-      <button onClick={() => setPage((page) => page - 1)}>&lt;</button>
-      {" "}
-      <button onClick={() => setPage((page) => page + 1)}>&gt;</button>
       {todos.map((todo) => (
         <li key={todo.id}>
           <Todo contract={contract} {...todo} />
         </li>
       ))}
+
+        <div className="flex pager">
+            Current Page: {page}
+        </div>
+        <div className={(todos.length <= 3) ? "show" : "show"}>
+            <button onClick={() => setPage((page) => page - 1)}>&lt;</button>
+            {" "}
+            <button onClick={() => setPage((page) => page + 1)}>&gt;</button>
+        </div>
     </ul>
   );
 }

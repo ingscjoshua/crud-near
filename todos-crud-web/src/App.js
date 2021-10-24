@@ -19,12 +19,13 @@ const App = ({ contract, currentUser, nearConfig, wallet }) => {
   };
   return (
     <>
-      <h1>NEAR Todos CRUD App</h1>
+      <h1>Todos App</h1>
       { currentUser
           ? <div>
               <h2>
                 Account ID: {currentUser.accountId}
                 {" "}
+                <br></br>
                 <button onClick={signOut}>Log out</button>
               </h2>
               

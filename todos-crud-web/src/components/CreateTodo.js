@@ -1,6 +1,7 @@
 // src/components/CreateTodo.js
 import { useState } from "react";
 
+
 const CreateTodo = ({ contract }) => {
   const [task, setTask] = useState("");
   const [loading, setLoading] = useState(false);
@@ -22,11 +23,12 @@ const CreateTodo = ({ contract }) => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Buy Groceries"
+        placeholder="Name of the task"
         value={task}
         onChange={({ target }) => setTask(target.value)}
       />
-      <button disabled={loading}>Create Task</button>
+        <br></br>
+      <button className="button" disabled={loading}>Create Task</button>
     </form>
   );
 }
